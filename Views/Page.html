@@ -1,0 +1,50 @@
+<form role=form>
+    <div id="p2" style="width:100%" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" ng-show="showloading"></div>
+
+    <div class="mdl-grid grid-width">
+        <div class="mdl-cell--4-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="text1" ng-model="empid" />
+                <label class="mdl-textfield__label" for="text1">First Name</label>
+            </div>
+        </div>
+        <div class="mdl-cell--4-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="text1" />
+                <label class="mdl-textfield__label" for="text1">Last Name</label>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-grid grid-width">
+        <div class="mdl-cell--4-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+                <input ui-date name="DateOfBirth" class="mdl-textfield__input" id="datepicker" ng-model="dob" />
+                <label class="mdl-textfield--floating-label datepickerfont" for="text1">Date Of Birth</label>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-grid grid-width">
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" ng-repeat="f in foo">
+            <tr>
+                <td>{{f.EmpID}}</td>
+                <td>{{f.Name}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="mdl-grid grid-width">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="add();submitRequest()">
+            <i class="material-icons">done</i>Submit
+        </button>
+    </div>
+    <div class="mdl-grid grid-width">
+        <div class="mdl-cell--6-col">
+            <h4>{{empid}}</h4>
+        </div>
+         <div class="mdl-cell--6-col">
+            <h5>{{ dob |  date:'MM/dd/yyyy'}}</h5>
+        </div>
+
+    </div>
+
+</div>

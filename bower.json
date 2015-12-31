@@ -1,0 +1,6 @@
+{
+  "name": "AUI",
+  "dependencies": {
+    "angular-route": "~1.4.8"
+  }
+}

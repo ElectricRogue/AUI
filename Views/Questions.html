@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../Styles/jquery-ui.min.css">
+    <link rel="stylesheet" href="../Styles/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="../Styles/material.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="../Styles/MyStyles.css">
+
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script src="../Scripts/jquery-ui.min.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <!--    <script src="../Scripts/angular.intellisense.js"></script>-->
+    <script src="../Scripts/material.min.js"></script>
+    <script src="../Scripts/date.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+    <div class="mdl-layout  mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header " ng-controller="Questions">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-typography--font-bold mdl-layout--small-screen-only">{{title}}</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <!-- Right aligned menu below button -->
+                <label class="mdl-typography--font-bold mdl-layout--large-screen-only"> {{username}} </label>
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">account_circle</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Change Password</li>
+                    <li class="mdl-menu__item">Logout</li>
+                </ul>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+
+            <span class="mdl-layout-title mdl-color-text--blue-500">{{title}}</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+                <a class="mdl-navigation__link" href="">Dashboard</a>
+                <a class="mdl-navigation__link" href="">Help</a>
+                <a class="mdl-navigation__link" href="">Logout</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+
+            <div class="page-content">
+                <form action="#">
+                    <div id="p2" style="width:100%" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" ng-show="showloading"></div>
+                    <div class="mdl-grid grid-width">
+                        <div class="mdl-cell--4-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="text1" ng-model="empid" />
+                                <label class="mdl-textfield__label" for="text1">First Name</label>
+                            </div>
+                        </div>
+                        <div class="mdl-cell--4-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="text1" />
+                                <label class="mdl-textfield__label" for="text1">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-grid grid-width">
+                        <div class="mdl-cell--4-col">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+                                <input ui-date name="DateOfBirth" class="mdl-textfield__input" id="datepicker" ng-model="dob" />
+                                <label class="mdl-textfield--floating-label datepickerfont" for="text1">Date Of Birth</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdl-grid grid-width">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" ng-repeat="f in foo">
+                            <tr>
+                                <td>{{f.EmpID}}</td>
+                                <td>{{f.Name}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="mdl-grid grid-width">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="add();submitRequest()">
+                            <i class="material-icons">done</i>Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+    //    $(function () {
+    //        $("#datepicker").datepicker();
+    //    });
+</script>
+<script src="../Controllers/app.js"></script>
+<script src="../Controllers/Questions.js"></script>
+
+</html>
